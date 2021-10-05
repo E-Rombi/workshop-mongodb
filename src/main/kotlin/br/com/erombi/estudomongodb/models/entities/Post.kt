@@ -12,9 +12,13 @@ class Post(
     val body: String,
     val author: Author,
 ) {
-
     @Id
     var id: String? = null
-    val createdAt: Instant = Instant.now()
-    val comments: List<Comment> = listOf()
+
+    var createdAt: Instant = Instant.now()
+    var comments: MutableList<Comment> = mutableListOf()
+
+    fun adicionarComentarios(comments: List<Comment>) {
+        this.comments.addAll(comments)
+    }
 }
